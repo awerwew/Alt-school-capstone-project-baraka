@@ -2,6 +2,7 @@ import uuid
 from sqlalchemy import Boolean, Column, String
 from sqlalchemy.dialects.postgresql import UUID
 from app.db.base import Base
+from sqlalchemy.orm import relationship
 
 from enum import Enum
 
@@ -19,6 +20,10 @@ class User(Base):
     hashed_pwd = Column(String, nullable = False)
     role = Column(String, default=UserRole.USER.value, nullable= False)
     is_active = Column(Boolean, default=True)
+
+
+    enrollments = relationship("Enrollment", back_populates="user", cascade="all, delete-orphan")
+    courses = relationship("Course", secondary="enrollments", back_populates="students")
 
 
    
