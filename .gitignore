@@ -1,0 +1,94 @@
+# ===============================
+# Python
+# ===============================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# ===============================
+# Virtual environments
+# ===============================
+.venv/
+venv/
+env/
+ENV/
+
+# ===============================
+# FastAPI / Uvicorn / Gunicorn
+# ===============================
+*.log
+logs/
+uvicorn.log
+gunicorn.log
+
+# ===============================
+# Environment variables / secrets
+# ===============================
+.env
+.env.*
+!.env.example
+
+# ===============================
+# Testing / coverage
+# ===============================
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# ===============================
+# Jupyter
+# ===============================
+.ipynb_checkpoints/
+
+# ===============================
+# Caches / tooling
+# ===============================
+.mypy_cache/
+.pyre/
+.pytype/
+ruff_cache/
+
+# ===============================
+# IDEs / editors
+# ===============================
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+
+# ===============================
+# OS files
+# ===============================
+.DS_Store
+Thumbs.db
+
+# ===============================
+# Docker
+# ===============================
+docker-compose.override.yml
+
+# Pytest
+.pytest_cache/
+
+# Coverage
+.coverage
+.coverage.*
+htmlcov/
+
+# Test databases (if applicable)
+*.db
+*.sqlite3
+
+# Python cache
+__pycache__/
+*.pyc
