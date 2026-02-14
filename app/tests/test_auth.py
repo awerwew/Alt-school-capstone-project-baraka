@@ -178,6 +178,7 @@ def test_login_inactive_user(client):
     db.add(user)
     db.commit()
 
+    
     response = client.post(
         "/api/v1/token",
         data={"username": "inactive@example.com", "password": "password123"}

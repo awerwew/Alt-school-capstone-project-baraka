@@ -8,7 +8,8 @@ from app.db.base import Base
 from app.api.deps import get_db
 from app.models.user_model import User
 from app.models.course_model import Course
-from app.models.enrollment_model import Enrollment
+
+
 
 
 SQLALCHEMY_DATABASE_URL = "sqlite:///./test.db"
@@ -82,3 +83,8 @@ def mock_course(course_id=None):
         capacity=10,
         is_active=True
     )
+
+
+
+
+

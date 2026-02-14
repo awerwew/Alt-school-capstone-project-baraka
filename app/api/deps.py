@@ -6,6 +6,9 @@ from app.db.session import SessionLocal
 from app.core.security import verify_token
 
 
+
+
+
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="api/v1/token")
 
 
@@ -61,5 +64,7 @@ def get_current_active_student(
     if current_user.role != UserRole.USER.value:
         raise HTTPException(status_code=403, detail="You're not authorized to access this route")
     return current_user
+
+
 
 

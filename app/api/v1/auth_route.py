@@ -18,8 +18,9 @@ router = APIRouter()
 def register_user(user: UserCreate, db: Session = Depends(get_db)):
     return auth_route.register_user(db=db, user_data=user)
 
-@router.post("/token", response_model=Token)
-def login_for_access_token(
+
+@router.post("/token", response_model=Token) 
+def login_for_access_token(         
     form_data: OAuth2PasswordRequestForm = Depends(),
     db: Session = Depends(get_db)
 ):
