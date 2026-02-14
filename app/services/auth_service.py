@@ -18,7 +18,7 @@ class AuthService:
         Register a new user.
         """
 
-        # 1️⃣ Check if email already exists
+        # Firstly check if email already exists
         existing_user = db.query(User).filter(User.email == user_data.email).first()
         if existing_user:
             raise HTTPException(
@@ -26,10 +26,10 @@ class AuthService:
                 detail="User with email already exist"
             )
 
-        # 2️⃣ Hash password
+        # Hash password
         hashed_password = get_pwd_hash(user_data.password)
 
-        # 3️⃣ Create user
+        # Create user
         db_user = User(
             name=user_data.name,
             email=user_data.email,
@@ -51,24 +51,24 @@ class AuthService:
         Authenticate user and return access token.
         """
 
-        # 1️⃣ Find user by email (username field contains email)
+        # Find user by email (username field contains email)
         user = db.query(User).filter(User.email == form_data.username).first()
 
-        # 2️⃣ Validate credentials
+        #  Validate credentials
         if not user or not verify_pwd(form_data.password, user.hashed_pwd):
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
                 detail="Invalid credential"
             )
 
-        # 3️⃣ Check if user is active
+        # Check if user is active
         if not user.is_active:
             raise HTTPException(
                 status_code=status.HTTP_403_FORBIDDEN,
                 detail="Inactive user"
             )
 
-        # 4️⃣ Create access token
+        # Create access token
         access_token_expires = timedelta(minutes=settings.TOKEN_EXPIRES)
 
         access_token = create_access_token(
@@ -97,14 +97,14 @@ class AuthService:
         Prevents admin from deactivating themselves.
         """
 
-        # 1️⃣ Prevent admin from deactivating themselves
+        # Prevent admin from deactivating themselves
         if user_id == current_admin.id:
             raise HTTPException(
                 status_code=status.HTTP_403_FORBIDDEN,
                 detail="Admins cannot deactivate themselves"
             )
 
-        # 2️⃣ Check if user exists
+        # Check if user exists
         user = db.query(User).filter(User.id == user_id).first()
         if not user:
             raise HTTPException(
@@ -112,14 +112,14 @@ class AuthService:
                 detail="User not found"
             )
 
-        # 3️⃣ If already inactive
+        # If already inactive
         if not user.is_active:
             return {
                 "message": "User is already inactive",
                 "user_id": user.id
             }
 
-        # 4️⃣ Deactivate user
+        # Deactivate user
         user.is_active = False
         db.commit()
 
@@ -137,7 +137,7 @@ class AuthService:
         Activate a user account (Admin only).
         """
 
-        # 1️⃣ Check if user exists
+        # Check if user exists
         user = db.query(User).filter(User.id == user_id).first()
 
         if not user:
@@ -146,14 +146,14 @@ class AuthService:
                 detail="User not found"
             )
 
-        # 2️⃣ If already active
+        #  If already active
         if user.is_active:
             return {
                 "message": "User is already active",
                 "user_id": user.id
             }
 
-        # 3️⃣ Activate user
+        # Activate user
         user.is_active = True
         db.commit()
 

@@ -15,7 +15,7 @@ class EnrollmentService:
 
     @staticmethod
     def enroll_student(db: Session, student: User, enrollment_data: EnrollmentCreate) -> Enrollment:
-        # 1️⃣ Check if course exists
+        # Check if course exists
         course = db.query(Course).filter(Course.id == enrollment_data.course_id).first()
         if not course or not course.is_active:
             raise HTTPException(
@@ -23,7 +23,7 @@ class EnrollmentService:
                 detail="Course not found or inactive"
             )
 
-        # 2️⃣ Check course capacity
+        # Check course capacity
         enrolled_count = db.query(Enrollment).filter(Enrollment.course_id == course.id).count()
         if enrolled_count >= course.capacity:
             raise HTTPException(
@@ -31,7 +31,7 @@ class EnrollmentService:
                 detail="Course capacity full"
             )
 
-        # 3️⃣ Check if student already enrolled
+        # Check if student already enrolled
         existing = db.query(Enrollment).filter(
             Enrollment.course_id == course.id,
             Enrollment.user_id == student.id
@@ -42,7 +42,7 @@ class EnrollmentService:
                 detail="You are already enrolled in this course"
             )
 
-        # 4️⃣ Create enrollment
+        # Create enrollment
         new_enrollment = Enrollment(
             user_id=student.id,
             course_id=course.id

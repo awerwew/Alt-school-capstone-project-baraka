@@ -5,7 +5,7 @@ from app.api.v1 import enrollment_route
 from app.core.config import settings
 
 
-app = FastAPI(title="Enrolloment Application")
+app = FastAPI(title="Course Enrolloment Application")
 
 
 app.include_router(auth_route.router, prefix=settings.API_V1_STR, tags=["auth"])
@@ -15,4 +15,4 @@ app.include_router(enrollment_route.router, prefix="/enrollments", tags=["Enroll
 
 @app.get("/")
 def root_path():
-    return {"message": "My Enrollment Application"}
+    return {"message": "My Course Enrollment Platform Application"}

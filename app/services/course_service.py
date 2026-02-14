@@ -23,7 +23,7 @@ class CourseService:
 
     @staticmethod
     def get_all_courses(db: Session) -> List[Course]:
-        return db.query(Course).all()
+        return db.query(Course).filter(Course.is_active.is_(True)).all()
     
 
 
