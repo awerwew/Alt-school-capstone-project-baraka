@@ -17,6 +17,11 @@ This API allows you to do the following:
 A DBdiagram showing the relationship within the models of this app
 ![Reference image](//documents/image_of_DBdiagram.jpeg)
 
+## A flowchart showing the flow of algorithm of the application
+
+This will help you understand the steps and processes embeded in the logic of the application.
+![Reference image](//documents/Course%20Enrollment-2026-02-15-092759.png)
+
 
 ## Setup instruction
 
