@@ -25,14 +25,12 @@ This will help you understand the steps and processes embeded in the logic of th
 
 ## Setup instruction
 
-- clone repository
-
 ```bash
 # create a virtual environment
 python -m venv venv
 
 # to activate environment
-.\venv\Scripts\activate # note for windows users and that's what i use
+.\venv\Scripts\activate # note for windows users and that's what i used
 
 # Install dependencies
 pip install -r requirements.txt
