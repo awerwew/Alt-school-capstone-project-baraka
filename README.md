@@ -84,3 +84,6 @@ pytest --cov=.
 
 ```
 
+## Where to find this project
+
+You can find this project folling this **github** link: <https://github.com/awerwew/Alt-school-capstone-project-baraka.git>
