@@ -15,7 +15,7 @@ This API allows you to do the following:
 ## A DBdiagram preview of this application
 
 A DBdiagram showing the relationship within the models of this app
-![Reference image](//documents/image_of_DBdiagram.jpeg)
+![Reference image](//documents/DBdiagram.png)
 
 ## A flowchart showing the flow of algorithm of the application
 
