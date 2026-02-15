@@ -15,7 +15,8 @@ This API allows you to do the following:
 ## A DBdiagram preview of this application
 
 A DBdiagram showing the relationship within the models of this app
-![Reference image](//documents/DBdiagram.png)
+![Reference image](<img width="8192" height="6052" alt="image" src="https://github.com/user-attachments/assets/60aa3b18-1aa6-448c-82fe-e397b5f94790" />
+)
 
 ## A flowchart showing the flow of algorithm of the application
 
